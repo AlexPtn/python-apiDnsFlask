@@ -1,0 +1,11 @@
+$ORIGIN .
+$TTL {{ ttl }}	;
+{{ name }}		IN SOA	psdv-dns-webmin-1.eolas-services.com. postmaster.eolas.fr. (
+				1 ; serial
+				{{ refresh }}       ; refresh
+				{{ retry }}        ; retry
+				{{ expire }}    ; expire
+				{{ minimum }}       ; minimum
+				)
+        NS	{{ nsName }}
+

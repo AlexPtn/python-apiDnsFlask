@@ -1,0 +1,30 @@
+$ORIGIN .
+$TTL 3600	; 1 hour
+dnsmutu.fr		IN SOA	psdv-dns-webmin-1.eolas-services.com. postmaster.eolas.fr. (
+				2024076916 ; serial
+				3600       ; refresh (1 hour)
+				600        ; retry (10 minutes)
+				1209600    ; expire (2 weeks)
+				3600       ; minimum (1 hour)
+				)
+			NS	ns01.dnsmutu.fr.
+			NS	ns02.dnsmutu.fr.
+			A	127.0.0.1
+$TTL 86400	; 1 day
+			MX	10 mail.google.com.
+			MX	10 mail2.google.com.
+			MX	10 amavis.eolas.fr.
+			MX	15 mail.google.com.
+			MX	20 mxbackup.eolas-services.com.
+$TTL 3600	; 1 hour
+			TXT	"v=spf1 include:_spf-paas.eolas-services.com ~all"
+$ORIGIN dnsmutu.fr.
+_dmarc			TXT	"v=DMARC1; p=none; sp=none; aspf=r; pct=100;"
+localhost		A	127.0.0.1
+ns01			A	178.237.109.175
+ns02			A	178.237.109.192
+$TTL 86400	; 1 day
+test			MX	10 mail.google.com.
+$TTL 3600	; 1 hour
+toto			TXT	"un commentaire"
+www			A	127.0.0.1
