@@ -1,0 +1,4 @@
+*
+!.gitignore
+
+# Dossier pour stocker les données persistantes des volumes docker

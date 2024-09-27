@@ -1,0 +1,27 @@
+version: '3.8'
+
+networks:
+    default:
+        name: dns
+
+services:
+    dns:
+        image: ubuntu/bind9
+        container_name: dns_bind
+        environment:
+            TZ: UTC
+            BIND9_USER: bind
+        volumes:
+            - ./config/bind:/etc/bind
+            - ./var/dns/bind:/var/lib/bind
+
+    dns_api:
+        container_name: dns_api
+        build:
+            context: ./flask
+        volumes:
+            - ./config/bind:/etc/bind
+            - ./var/dns/bind:/var/lib/bind
+            - ..:/app
+        ports:
+            - 8000:8000
